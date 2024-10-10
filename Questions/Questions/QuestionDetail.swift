@@ -10,7 +10,6 @@ struct QuestionDetail: View {
                     .font(.subheadline)
                     .foregroundStyle(.blue)
             }
-            
             Spacer()
         }
         .padding()
@@ -18,7 +17,6 @@ struct QuestionDetail: View {
         .navigationBarTitleDisplayMode(.inline)
     }
 }
-
 
 extension String {
     var stripHTML: String {
