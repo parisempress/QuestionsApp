@@ -2,6 +2,7 @@ import SwiftUI
 
 struct QuestionDetail: View {
     let question: Question
+
     var body: some View {
         VStack {
             Section {

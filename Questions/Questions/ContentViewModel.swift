@@ -1,15 +1,19 @@
 import SwiftUI
 
 extension ContentView {
-
     @Observable
-    class ViewModel: Network {
+    class ViewModel {
         var questions = [Question]()
+        var network: Network
+
+        // TODO: Add dependency injection
+        init(network: Network = Network()) {
+            self.network = network
+        }
 
         func fetchQuestions() async {
             do {
-                let fetchQuestions = try await fetchQuestionsFromAPI()
-                questions = fetchQuestions
+                questions = try await network.fetchQuestionsFromAPI()
             } catch {
                 questions = []
                 print("\(error)")

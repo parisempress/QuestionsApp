@@ -13,7 +13,10 @@ class Network {
                 throw URLError(.badURL)
             }
         let (data, _) = try await URLSession.shared.data(from: url)
-        let decoded = try JSONDecoder().decode(QuestionsResponse.self, from: data)
+        let jsonDecoder = JSONDecoder()
+        // TODO: Review 
+        jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+        let decoded = try jsonDecoder.decode(QuestionsResponse.self, from: data)
         return decoded.items
     }
 }

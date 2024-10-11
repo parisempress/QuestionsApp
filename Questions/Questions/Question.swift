@@ -5,25 +5,6 @@ struct QuestionsResponse: Codable {
 }
 
 struct Question: Codable, Hashable {
-
-    enum CodingKeys: String, CodingKey {
-        case tags
-        case owner
-        case isAnswered = "is_answered"
-        case viewCount = "view_count"
-        case answerCount = "answer_count"
-        case score
-        case lastActivityDate = "last_activity_date"
-        case creationDate = "creation_date"
-        case lastEditDate = "last_edit_date"
-        case questionId = "question_id"
-     // case contentLicense = "content_license"
-        case link
-        case title
-        case body
-        case acceptedAnswerId = "accepted_answer_id"
-    }
-
     var tags: [String]
     var owner: Owner
     var isAnswered: Bool
@@ -42,15 +23,6 @@ struct Question: Codable, Hashable {
 }
 
 struct Owner: Codable, Hashable {
-    enum CodingKeys: String, CodingKey {
-        case accountId = "account_id"
-        case reputation
-        case userId = "user_id"
-        case userType = "user_type"
-        case profileImage = "profile_image"
-        case displayName = "display_name"
-        case link
-    }
     var accountId: Int
     var reputation: Int
     var userId: Int

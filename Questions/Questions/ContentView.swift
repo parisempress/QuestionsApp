@@ -2,6 +2,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var viewModel = ViewModel()
+
     var body: some View {
         NavigationStack {
             List {
@@ -30,3 +31,6 @@ struct ContentView: View {
 #Preview {
     ContentView()
 }
+
+// TODO: Create Protocol.... Class Network
+// TODO: Look in dependency injection, create one or check a library
