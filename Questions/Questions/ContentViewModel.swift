@@ -4,10 +4,9 @@ extension ContentView {
     @Observable
     class ViewModel {
         var questions = [Question]()
-        var network: Network
-
-        // TODO: Add dependency injection
-        init(network: Network = Network()) {
+        var network: NetworkProtocol
+        
+        init(network: NetworkProtocol = Network()) {
             self.network = network
         }
 

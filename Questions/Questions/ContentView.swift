@@ -31,6 +31,3 @@ struct ContentView: View {
 #Preview {
     ContentView()
 }
-
-// TODO: Create Protocol.... Class Network
-// TODO: Look in dependency injection, create one or check a library

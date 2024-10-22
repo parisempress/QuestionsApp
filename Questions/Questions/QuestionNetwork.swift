@@ -1,6 +1,6 @@
 import SwiftUI
 
-class Network {
+class Network: NetworkProtocol {
     func fetchQuestionsFromAPI() async throws -> [Question] {
         let urlString = "https://api.stackexchange.com/2.3/questions?" +
                             "fromdate=1725753600&" +
@@ -18,5 +18,29 @@ class Network {
         jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
         let decoded = try jsonDecoder.decode(QuestionsResponse.self, from: data)
         return decoded.items
+    }
+}
+
+protocol NetworkProtocol {
+    func fetchQuestionsFromAPI() async throws -> [Question]
+}
+
+class MockQuestionService: NetworkProtocol {
+    func fetchQuestionsFromAPI() async throws -> [Question] {
+
+        let mockOwner = Owner(accountId: 1, reputation: 1, userId: 1, userType: "", profileImage: "", displayName: "", link: "")
+
+        return [Question(tags: [""],
+                         owner: mockOwner,
+                         isAnswered: true,
+                         viewCount: 1,
+                         answerCount: 1,
+                         score: 1,
+                         lastActivityDate: 1,
+                         creationDate: 1,
+                         questionId: 1,
+                         link: "",
+                         title: "Mock Question",
+                         body: "This is a mock question body.")]
     }
 }
