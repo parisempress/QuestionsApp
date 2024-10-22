@@ -8,7 +8,12 @@ struct ContentView: View {
             List {
                 ForEach(viewModel.questions) { question in
                     NavigationLink(value: question) {
-                        Text(question.title)
+                        HStack {
+                            Image(systemName: "questionmark.circle")
+                                .foregroundColor(.blue)
+                                .padding(.trailing, 5)
+                            Text(question.title)
+                        }
                     }
                 }
             }
@@ -19,6 +24,7 @@ struct ContentView: View {
             .navigationTitle("Questions")
             .navigationBarTitleDisplayMode(.inline)
             .listStyle(.grouped)
+
         }
         .refreshable {
             await viewModel.fetchQuestions()

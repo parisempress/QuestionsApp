@@ -5,7 +5,7 @@ extension ContentView {
     class ViewModel {
         var questions = [Question]()
         var network: NetworkProtocol
-        
+
         init(network: NetworkProtocol = Network()) {
             self.network = network
         }
